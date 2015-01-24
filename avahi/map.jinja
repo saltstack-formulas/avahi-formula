@@ -1,0 +1,18 @@
+{% set avahi = salt['grains.filter_by']({
+  'Debian' : {
+    'pkgs'    : ['avahi-daemon','avahi-discover','libnss-mdns'],
+    'service' : 'avahi-daemon',
+    'config'  : '/etc/avahi/avahi-daemon.conf',
+  },
+  'RedHat' : {
+    'pkgs'    : ['avahi','avahi-autoipd','avahi-compat-libdns_sd','avahi-glib','avahi-gobject','avahi-tools','nss-mdns','nss-mdns.i?86'],
+    'service' : 'avahi-daemon',
+    'config'  : '/etc/avahi/avahi-daemon.conf',
+  },
+  'Arch' : {
+    'pkgs'    : ['avahi', 'nss-mdns'],
+    'service' : 'avahi-daemon',
+    'config'  : '/etc/avahi/avahi-daemon.conf',
+  },
+},  merge=salt['pillar.get']('avahi:lookup')) %}
+
