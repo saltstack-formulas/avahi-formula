@@ -12,4 +12,4 @@ avahi_config:
   rlimit-nofile: 768
   rlimit-stack: 4194304
   rlimit-nproc: 3
-
+  rlimit-disable-all: True
