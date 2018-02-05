@@ -16,7 +16,7 @@ rlimits.  To do this, you can add this to your pillar data:
 
 ```
 avahi_config:
-  rlimit-disable-all: True
+  rlimits_disable_all: True
 ```
 
 You could also set a conditional on the salt grain `virtual` which would be equal to the value `LXC` as follows:
@@ -24,7 +24,7 @@ You could also set a conditional on the salt grain `virtual` which would be equa
 ```
 avahi_config:
 {% if salt['grains.get']('virtual', '') == 'LXC' %}
-  rlimit-disable-all: True
+  rlimits_disable_all: True
 {% endif %}
 ```
 
